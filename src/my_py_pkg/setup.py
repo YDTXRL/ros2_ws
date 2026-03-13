@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'test_node = my_py_pkg.my_first_node:main',
+            "number_publisher = my_py_pkg.number_publisher:main"
         ],
     },
 )

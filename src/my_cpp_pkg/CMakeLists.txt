@@ -8,8 +8,12 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
 
 add_executable(test_node src/my_first_node.cpp)
+add_executable(number_publisher src/number_publisher.cpp)
+
+ament_target_dependencies(number_publisher rclcpp std_msgs)
 ament_target_dependencies(test_node rclcpp)
 
 if(BUILD_TESTING)
@@ -25,7 +29,7 @@ if(BUILD_TESTING)
 endif()
 
 install(TARGETS
-  test_node
+  test_node number_publisher
   DESTINATION lib/${PROJECT_NAME}
 )
 

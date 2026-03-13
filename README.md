@@ -22,7 +22,7 @@ git commit -m "说明"
 
 ## Python 节点模板
 ### 完整代码
-```python
+'''python'''
 #!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
@@ -93,3 +93,25 @@ int main(int argc, char** argv)
     rclcpp::shutdown();
     return 0;
 }
+
+
+
+
+
+
+# ROS 2 常用消息包参考
+## 官方消息包分类（按用途）
+| 消息包名称          | 核心用途                                  | 常用消息示例                          | 适用场景                          |
+|---------------------|-------------------------------------------|---------------------------------------|-----------------------------------|
+| `std_msgs`          | 最基础的通用类型（数字、字符串、布尔）    | `Int64`/`Float64`/`String`/`Bool`     | 快速验证逻辑、简单数据传输        |
+| `example_interfaces`| 教学示例用（语义无实际业务含义）          | `Int64`/`Float64`/`Empty`             | 学习阶段、入门练手                |
+| `geometry_msgs`     | 几何相关（坐标、点、姿态、变换）          | `Point`/`Pose`/`Twist`（速度）/`Transform` | 机器人位姿、运动控制              |
+| `sensor_msgs`       | 传感器数据（相机、激光、IMU、雷达）      | `Image`（图像）/`LaserScan`（激光）/`Imu`（IMU） | 传感器数据采集、处理              |
+| `nav_msgs`          | 导航相关（路径、里程计、地图）            | `Odometry`（里程计）/`Path`（路径）   | 机器人导航、定位                  |
+| `action_msgs`       | 动作通信基础类型                          | `GoalStatus`/`CancelGoal`             | 长时动作控制（如导航、抓取）      |
+| `diagnostic_msgs`   | 设备诊断、状态监控                        | `DiagnosticStatus`/`KeyValue`         | 系统健康监控、故障排查            |
+
+## 实用操作指令
+### 1. 查找已安装的消息包
+```bash
+ros2 pkg list | grep msgs

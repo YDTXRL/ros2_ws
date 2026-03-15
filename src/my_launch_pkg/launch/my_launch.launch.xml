@@ -1,0 +1,7 @@
+<launch>
+  <!-- 启动 C++ 数字发布者节点 -->
+  <node pkg="my_cpp_pkg" exec="number_publisher" name="number_publisher" output="screen"/>
+
+  <!-- 启动 Python 数字订阅者节点 -->
+  <node pkg="my_py_pkg" exec="number_counter" name="number_counter" output="screen"/>
+</launch>

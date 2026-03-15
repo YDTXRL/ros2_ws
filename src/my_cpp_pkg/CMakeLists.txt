@@ -9,12 +9,16 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(turtlesim REQUIRED)
 
 add_executable(test_node src/my_first_node.cpp)
 add_executable(number_publisher src/number_publisher.cpp)
+add_executable(turtle_controller src/turtle_controller.cpp)
 
 ament_target_dependencies(number_publisher rclcpp std_msgs)
 ament_target_dependencies(test_node rclcpp)
+ament_target_dependencies(turtle_controller rclcpp geometry_msgs turtlesim)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -29,7 +33,7 @@ if(BUILD_TESTING)
 endif()
 
 install(TARGETS
-  test_node number_publisher
+  test_node number_publisher turtle_controller
   DESTINATION lib/${PROJECT_NAME}
 )
 
